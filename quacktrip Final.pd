@@ -1,0 +1,39 @@
+#N canvas 814 95 902 687 12;
+#X declare -path lib;
+#X obj 71 485 out-panel;
+#X obj 71 62 in-panel;
+#X obj 71 166 quack-panel 1;
+#N canvas 784 72 786 401 more-stuff 0;
+#X obj 621 336 declare -path lib;
+#X text 344 231 <--- this is for testing behind a common NAT router
+using a local conniption server. It won't work unless you have one
+set up., f 45;
+#X msg 88 228 \; quack-panel-1 server 192.168.1.65 \; quack-panel-1
+call-name poodle;
+#X text 17 56 place a call via server;
+#X msg 196 91 \; quack-panel-1 call-name port_4477 \, server localhost
+\, on-off 1, f 68;
+#X text 68 94 test: localhost \, client, f 16;
+#X text 94 141 test: server;
+#X msg 195 135 \; quack-panel-1 call-name port_4477 \, server me \,
+on-off 1, f 68;
+#X msg 196 52 \; quack-panel-1 call-name fred \, server foo.ucsd.edu
+\, on-off 1;
+#X text 226 14 scripting examples:;
+#X restore 776 636 pd more-stuff;
+#X obj 443 624 pdcontrol;
+#X msg 443 593 browse http://msp.ucsd.edu/tools/quacktrip/doc.htm;
+#X text 437 569 click here to open detailed documentation in your browser:
+;
+#X text 517 635 ... or here for scripting examples:;
+#X text 132 615 Quacktrip is open-source software with a BSD license.
+, f 29;
+#X text 47 11 Quacktrip version 0.92test1: Peer-to-peer audio;
+#X obj 513 102 looper;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 0 0;
+#X connect 2 1 0 1;
+#X connect 5 0 4 0;
+#X connect 10 0 2 0;
+#X connect 10 0 2 1;
